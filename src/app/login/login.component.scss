@@ -1,0 +1,25 @@
+.login{
+  display: grid;
+  //display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  grid-template-rows: repeat(2,auto);
+  //grid-template-columns: 100%;
+  //height: 100vh;
+  //width: 100vh;
+}
+mat-card{
+  display: inline-block;
+}
+form{
+  margin-top: 2em;
+}
+a{
+  margin-top: 2em;
+}
+.message{
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}

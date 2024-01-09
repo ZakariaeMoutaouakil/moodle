@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="courses">
+    <h1>{{ year() }} {{ parcours() }}</h1>
+    <div *ngFor="let course of courses()">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ course.title }}</mat-card-title>
+          <mat-card-subtitle>{{ course.prof }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>{{ course.description }}</mat-card-content>
+        <mat-card-actions align="end">
+          <button (click)="OnClick(course)"
+                  aria-label="Example icon button with a bookmark icon"
+                  color="primary"
+                  mat-fab>
+            <mat-icon>
+              {{ course.subscribe ? "bookmark" : "bookmark_border" }}
+            </mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

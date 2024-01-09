@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <a
+    class="title"
+    mat-button
+    routerLink="/">Université Paris Cité
+  </a>
+  <div *ngFor="let composante of composantes">
+    <a
+      [matMenuTriggerFor]="menu"
+      mat-button>{{ Object.getOwnPropertyNames(composante)[0] }}</a>
+    <mat-menu #menu="matMenu">
+      <a
+        *ngFor="let subject of composante[Object.getOwnPropertyNames(composante)[0]]"
+        mat-menu-item
+        routerLink="/composantes/{{subject}}">{{ subject }}
+      </a>
+    </mat-menu>
+  </div>
+  <a
+    class="login"
+    mat-flat-button
+    (click)="OnClick()">
+    {{ authService.authenticated() === false ? 'Connexion' : 'Déconnexion' }}
+  </a>
+</mat-toolbar>

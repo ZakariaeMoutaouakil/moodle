@@ -1,0 +1,53 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="title">
+      <p>La liste des parcours :</p>
+    </div>
+    <mat-accordion>
+      <mat-expansion-panel
+      *ngFor="let parcours of parcours()">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{parcours}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ul>
+          <li>
+            <a
+              class="year"
+              routerLink="{{parcours}}/M2">M2 {{parcours}}</a>.
+          </li>
+        </ul>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </mat-drawer>
+  <div class="main">
+    <span></span>
+    <div class="news">
+      <div class="parcours">
+        <h1>Bienvenue au portail {{ composante() }}!</h1>
+        <div class="button">
+          <button (click)="drawer.toggle()" mat-button type="button">
+            Voir les parcours
+          </button>
+        </div>
+      </div>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Annonces et Généralités</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Bienvenue sur le portail Moodle de l’UFR {{composante()}} de l’université de Paris, site des Grands Moulins.
+          </p>
+          <p>
+            Pour plus d’information, n’hésitez pas à consulter le site de l’UFR.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <span></span>
+  </div>
+</mat-drawer-container>
+

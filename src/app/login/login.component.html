@@ -1,0 +1,42 @@
+<div class="message">
+  <mat-card>
+    <mat-card-content>Veuillez vous connecter à l'Université Paris Cité.</mat-card-content>
+  </mat-card>
+</div>
+
+<div class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input  matInput placeholder="Email" formControlName="email">
+<!--        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+<!--        @if (email.invalid) {-->
+<!--          <mat-error>{{getErrorMessage()}}</mat-error>-->
+<!--        }-->
+        <mat-hint>Votre adresse mail</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput placeholder="Mot de passe" formControlName="password">
+<!--        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+        <mat-hint>Votre mot de passe</mat-hint>
+      </mat-form-field>
+    </p>
+    <button color="primary"
+            disabled="{{loginForm.status=='INVALID'}}"
+            mat-raised-button
+            type="submit">Se connecter
+    </button>
+  </form>
+  @if (this.loginForm.status=="INVALID" || this.afterFirstTry){
+    <a style="color: red">{{errorMessage()}}</a>
+  }
+  <a
+    routerLink="/signup">
+    Vous n'avez pas encore un compte?
+  </a>
+</div>
+

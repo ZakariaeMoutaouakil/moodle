@@ -1,0 +1,79 @@
+<div class="signup">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <mat-stepper #stepper [linear]="true">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Informations Personnelles</ng-template>
+          <p>Votre nom de famille :</p>
+          <mat-form-field>
+            <mat-label>Nom de famille</mat-label>
+            <input formControlName="nom" matInput placeholder="Nom de famille" required>
+          </mat-form-field>
+          <br>
+          <p>Votre prénom :</p>
+          <mat-form-field>
+            <mat-label>Prénom</mat-label>
+            <input formControlName="prenom" matInput placeholder="Prénom" required>
+          </mat-form-field>
+          <br>
+          <p>Votre adresse :</p>
+          <mat-form-field>
+            <mat-label>Adresse</mat-label>
+            <input formControlName="adresse" matInput placeholder="45 Rue des Saints-Pères, 75006 Paris" required>
+          </mat-form-field>
+          <br>
+          <p>Votre pays de naissance :</p>
+          <mat-form-field>
+            <mat-label>Pays de naissance</mat-label>
+            <input formControlName="pays" matInput placeholder="France" required>
+          </mat-form-field>
+          <br>
+          <p>Votre date de naissance :</p>
+          <mat-form-field>
+            <mat-label>Date de naissance</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="picker">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="secondFormGroup" label="Coordonnées">
+        <form [formGroup]="secondFormGroup">
+          <p>Votre email :</p>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput placeholder="example@domain.com" required>
+          </mat-form-field>
+          <br>
+          <p>Votre mot de passe :</p>
+          <mat-form-field>
+            <mat-label>Mot de passe</mat-label>
+            <input formControlName="password" matInput placeholder="Mot de passe" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <button color="primary"
+                mat-raised-button
+                type="submit">Se connecter
+        </button>
+        <div>
+          <button mat-button matStepperPrevious>Précédent</button>
+          <button (click)="stepper.reset()" mat-button>Réinitialiser</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </form>
+</div>
+

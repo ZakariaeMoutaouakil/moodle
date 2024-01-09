@@ -1,0 +1,47 @@
+.main{
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 100%;
+}
+.news{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto;
+  margin-top: 1em;
+}
+mat-card{
+  width: 100%;
+}
+mat-drawer-container {
+  width: 100%;
+  height: 100vh;
+}
+h1,button{
+  display: inline-block;
+}
+.button{
+  display: flex;
+  justify-content: right;
+}
+.parcours{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+mat-drawer{
+  width: 50vh;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+mat-card-header{
+  margin-bottom: 1em;
+}
+.year{
+  text-decoration-line: none;
+  &:hover{
+    color: pink;
+    text-decoration-line: underline;
+  }
+}
