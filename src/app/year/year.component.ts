@@ -2,6 +2,7 @@ import {Component, signal} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {Course} from "./course.type";
+import {environment} from "../../environments/environment";
 
 
 
@@ -24,7 +25,7 @@ export class YearComponent {
         this.year.set(url.year);
       }
     );
-    this.httpClient.get<Course[]>("http://127.0.0.1:8000/cours/",
+    this.httpClient.get<Course[]>(`${environment.apiUrl}cours/`,
       {
         params: {
           parcours: this.parcours(),
@@ -41,7 +42,7 @@ export class YearComponent {
 
   OnClick(course: Course) {
     console.log("OnClick")
-    this.httpClient.post(`http://127.0.0.1:8000/subscribe/`, {
+    this.httpClient.post(`${environment.apiUrl}subscribe/`, {
       course: course.title,
       access_token: localStorage.getItem("access_token")
     }).subscribe(data => {

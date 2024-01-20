@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ export class HeaderComponent {
   constructor(private httpClient: HttpClient,
               protected authService: AuthService,
               private router: Router) {
-    this.httpClient.get("http://127.0.0.1:8000/composantes")
+    this.httpClient.get(`${environment.apiUrl}composantes`)
       .subscribe(data => {
         for (let composante of Object.getOwnPropertyNames(data)) {
           let obj: Object = {};

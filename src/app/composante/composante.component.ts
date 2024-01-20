@@ -2,6 +2,7 @@ import {AfterViewChecked, AfterViewInit, Component, OnInit, signal} from '@angul
 import {ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {Subscription} from "rxjs";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-composante',
@@ -15,7 +16,7 @@ export class ComposanteComponent {
   constructor(private activatedRoute: ActivatedRoute, private httpClient: HttpClient) {
     this.activatedRoute.params.subscribe(url=>{
       this.composante.set(url.composante);
-      this.httpClient.get<string[]>("http://127.0.0.1:8000/read/", {
+      this.httpClient.get<string[]>(`${environment.apiUrl}read/`, {
         params: {
           node_filter: 'subject',
           node_property: this.composante(),

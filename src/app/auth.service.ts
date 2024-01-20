@@ -1,6 +1,7 @@
 import {Injectable, signal} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "./user";
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,14 @@ export class AuthService {
   }
 
   login(user: User) {
-    return this.httpClient.post<User>(`http://127.0.0.1:8000/login/`, {
+    return this.httpClient.post<User>(`${environment.apiUrl}login/`, {
         user
       }
     )
   }
 
   signup(user: User) {
-    return this.httpClient.post<User>(`http://127.0.0.1:8000/signup/`, {
+    return this.httpClient.post<User>(`${environment.apiUrl}signup/`, {
         user
       }
     )
