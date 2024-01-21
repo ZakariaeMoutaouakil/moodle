@@ -109,6 +109,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "moodle:build:production",
+              "serveTarget": "moodle:serve:production"
+            },
+            "development": {
+              "buildTarget": "moodle:build:development",
+              "serveTarget": "moodle:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

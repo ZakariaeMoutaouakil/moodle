@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "moodle32515"
+  },
+  "targets": {
+    "moodle32515": {
+      "hosting": {
+        "moodle": [
+          "moodle32515"
+        ]
+      }
+    }
+  }
+}
