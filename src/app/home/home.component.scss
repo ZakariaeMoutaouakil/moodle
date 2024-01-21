@@ -1,44 +1,78 @@
-.welcome{
-  background-color: rgb(250, 250, 250);
+header {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
 }
-.main-image{
+
+h1 {
+  font-weight: bolder;
+}
+
+.main-image {
   max-width: 80%;
   border-radius: 1%;
 }
-.image{
+
+.image {
   display: flex;
   justify-content: center;
-  margin-top: 5em;
 }
-.info-cards{
+
+.info-cards {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 4em;
   margin: 6em 5em;
 }
-.card{
+
+.card {
   background-color: white;
   border-radius: 1%;
-  box-shadow: 5px 5px 5px 5px lighten(black,60%);
+  box-shadow: 5px 5px 5px 5px lighten(black, 60%);
   display: grid;
   grid-template-columns: 25% 75%;
   grid-template-rows: 100%;
+  margin-bottom: 2em;
 }
-h3,p{
+
+h3, p {
   color: black;
 }
-.icon{
+
+.icon {
   display: flex;
   justify-content: center;
 }
-.small-image{
+
+.small-image {
   max-width: 70%;
   border-radius: 1%;
 }
-h3{
+
+h3 {
+  font-weight: bold;
   padding-top: 1em;
 }
-ul{
+
+ul {
   color: black;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+h5 {
+  background-color: white;
+  color: red;
+}
+
+h4 {
+  font-weight: bold;
+  color: white;
 }
