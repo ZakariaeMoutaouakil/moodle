@@ -37,25 +37,21 @@ export class SignupComponent {
   }
 
   onSubmit() {
-    console.log(this.formGroup.value)
     this.authService.signup({
       name: this.formGroup.value.infos.nom,
       email: this.formGroup.value.contact.email,
       password: this.formGroup.value.contact.password
     }).subscribe(data => {
-      console.log(data)
       this.authService.login({
         email: this.formGroup.value.contact.email,
         password: this.formGroup.value.contact.password
       }).subscribe(
         token => {
-          console.log(token);
           localStorage.setItem("access_token", token["access_token"]);
           this.authService.authenticated.set(true)
           this.router.navigate(["/"])
         },
         error => {
-          console.log(error.error.message)
         }
       )
     })

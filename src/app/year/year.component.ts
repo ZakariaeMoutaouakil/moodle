@@ -34,14 +34,12 @@ export class YearComponent {
       }
     ).subscribe(
       data => {
-        console.log("courses : ",data)
         this.courses.set(data)
       }
     )
   }
 
   OnClick(course: Course) {
-    console.log("OnClick")
     this.httpClient.post(`${environment.apiUrl}subscribe/`, {
       course: course.title,
       access_token: localStorage.getItem("access_token")

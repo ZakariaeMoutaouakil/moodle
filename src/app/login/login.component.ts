@@ -18,12 +18,12 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
       "email": new FormControl(null,
-        // [Validators.required, Validators.email]
+        [Validators.required, Validators.email]
       ),
       "password": new FormControl(null, [
         Validators.required,
-        // Validators.pattern(this.StrongPasswordRegx),
-        // Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+        Validators.pattern(this.StrongPasswordRegx),
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
       ])
     })
   }
@@ -31,19 +31,15 @@ export class LoginComponent {
   onSubmit() {
     this.authService.login(this.loginForm.value).subscribe(
       token => {
-        console.log(token)
         localStorage.setItem("access_token", token["access_token"])
         this.authService.authenticated.set(true)
         this.router.navigate(["/"])
       },
       error => {
-        console.log(error.error.message)
         this.afterFirstTry = true;
         this.errorMessage.set("Veuillez rentrer des identifiants valides.")
       }
     )
-    console.log(this.loginForm)
-    console.log(this.loginForm.controls.password.status)
     this.errorMessage.set("Veuillez rentrer des identifiants valides.")
   }
 }
